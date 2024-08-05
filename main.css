@@ -9,6 +9,7 @@
   --text-content: #696969;
   --background-primary: #edf3ff;
   --background-secondary: #ffffff;
+  --background-contrast: #fffaed;
 }
 
 * {
@@ -19,18 +20,40 @@ body,
 html {
   background: var(--background-primary);
   font-size: 20px;
-  @media only screen and (max-width: 686px) {
+  @media only screen and (max-width: 833px) {
     font-size: 16px;
   }
+}
+
+#main {
+  padding: 6rem 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  @media only screen and (max-width: 1700px) {
+    padding: 6rem 4rem;
+    align-items: start;
+  }
+  @media only screen and (max-width: 833px) {
+    padding: 4rem 2rem;
+    align-items: start;
+  }
+  background: linear-gradient(
+    0deg,
+    var(--background-primary) 0%,
+    var(--background-secondary) 100%
+  );
 }
 
 #logo {
   display: flex;
   gap: 1rem;
-  @media only screen and (max-width: 686px) {
+  @media only screen and (max-width: 833px) {
     align-items: center;
     text-align: center;
     flex-direction: column;
+    align-self: center;
   }
 }
 
@@ -42,7 +65,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  @media only screen and (max-width: 686px) {
+  @media only screen and (max-width: 833px) {
     align-items: center;
   }
 }
@@ -60,7 +83,7 @@ html {
 }
 
 #title-date {
-  color: white;
+  color: var(--background-secondary);
   font-weight: 300;
   background: var(--text-primary);
   font-size: 1.5rem;
@@ -69,34 +92,13 @@ html {
   border-radius: 4rem;
 }
 
-#main {
-  padding: 6rem 30%;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
-  @media only screen and (max-width: 1550px) {
-    padding: 6rem 4rem;
-    align-items: start;
-  }
-  @media only screen and (max-width: 686px) {
-    padding: 4rem 2rem;
-    align-items: start;
-  }
-  background: linear-gradient(
-    0deg,
-    var(--background-primary) 0%,
-    var(--background-secondary) 100%
-  );
-}
-
 .information-block {
   line-height: 1.25rem;
   width: 32rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  @media only screen and (max-width: 686px) {
+  @media only screen and (max-width: 833px) {
     width: 100%;
   }
 }
@@ -113,11 +115,34 @@ html {
   text-align: left;
 }
 
+#next-event-social {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+#agenda {
+  @media only screen and (min-width: 1700px) {
+    background: var(--background-contrast);
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0px 2px 8px 0px #0000001a;
+    width: 125%;
+  }
+}
+
 .schedule {
   display: flex;
   gap: 2rem;
   flex-direction: column;
   margin-top: 1rem;
+  @media only screen and (min-width: 1700px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
 }
 
 .schedule-day {
@@ -133,7 +158,7 @@ html {
 }
 
 .schedule-block {
-  background: white;
+  background: var(--background-secondary);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -151,4 +176,12 @@ html {
 .schedule-content {
   color: var(--text-primary);
   font-weight: 700;
+}
+
+.invisible-lg {
+  display: none;
+  @media only screen and (min-width: 1700px) {
+    display: inherit;
+    opacity: 0;
+  }
 }
