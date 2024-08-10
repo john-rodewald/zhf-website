@@ -122,6 +122,10 @@ html {
   align-items: center;
 }
 
+#map {
+  height: 20em;
+}
+
 #agenda {
   @media only screen and (min-width: 1700px) {
     background: var(--background-contrast);

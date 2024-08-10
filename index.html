@@ -12,6 +12,8 @@
     <link rel="icon" href="assets/nix-zurich.svg" type="image/svg+xml" sizes="any">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><!-- 180×180 -->
     <title>The Zürich Nix Community</title>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v10.0.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.0.0/ol.css">
   </head>
 
   <body>
@@ -71,6 +73,39 @@
             Oberseestrasse 10, 8640 Rapperswil-Jona (Geb. 4)
           </a>
         </p>
+        <div id="map"></div>
+        <script defer>
+            const ostGeb4 = ol.proj.fromLonLat([8.81653368473053, 47.22318649291992])
+            const pinStyle = new ol.style.Style({
+              image: new ol.style.Icon({
+                anchor: [0.5, 1],
+                opacity: 1,
+                scale: 0.7,
+                src: 'assets/map_pin.svg',
+              }),
+            });
+            const pinFeature = new ol.Feature({
+              geometry: new ol.geom.Point(ostGeb4),
+            });
+            pinFeature.setStyle(pinStyle);
+            const vectorSource = new ol.source.Vector({
+              features: [pinFeature],
+            });
+            const vectorLayer = new ol.layer.Vector({
+              source: vectorSource,
+            });
+            const tileLayer = new ol.layer.Tile({
+              source: new ol.source.OSM(),
+            });
+            const map = new ol.Map({
+              target: 'map',
+              layers: [tileLayer, vectorLayer],
+              view: new ol.View({
+                center: ostGeb4,
+                zoom: 16,
+              }),
+            });
+        </script>
       </section>
 
       <section id="agenda" class="information-block">
