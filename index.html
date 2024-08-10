@@ -5,7 +5,7 @@
       rel="stylesheet"
       href="https://meyerweb.com/eric/tools/css/reset/reset.css"
     />
-    <link rel="stylesheet" href="main.css?1723289970" />
+    <link rel="stylesheet" href="main.css?1723289980" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <link rel="icon" href="favicon.ico" sizes="64x64 32x32 16x16">
@@ -75,30 +75,30 @@
         <div id="map"></div>
         <script defer>
             const ostGeb4 = ol.proj.fromLonLat([8.81653368473053, 47.22318649291992])
-            const pinStyle = new ol.style.Style({
-              image: new ol.style.Icon({
-                anchor: [0.5, 1],
-                opacity: 1,
-                scale: 0.7,
-                src: 'assets/map_pin.svg',
-              }),
-            });
             const pinFeature = new ol.Feature({
               geometry: new ol.geom.Point(ostGeb4),
             });
-            pinFeature.setStyle(pinStyle);
-            const vectorSource = new ol.source.Vector({
-              features: [pinFeature],
-            });
-            const vectorLayer = new ol.layer.Vector({
-              source: vectorSource,
+            pinFeature.setStyle(
+              new ol.style.Style({
+                image: new ol.style.Icon({
+                  anchor: [0.5, 1],
+                  opacity: 1,
+                  scale: 0.7,
+                  src: 'assets/map_pin.svg',
+                }),
+              })
+            );
+            const pinLayer = new ol.layer.Vector({
+              source: new ol.source.Vector({
+                features: [pinFeature],
+              }),
             });
             const tileLayer = new ol.layer.Tile({
               source: new ol.source.OSM(),
             });
             const map = new ol.Map({
               target: 'map',
-              layers: [tileLayer, vectorLayer],
+              layers: [tileLayer, pinLayer],
               view: new ol.View({
                 center: ostGeb4,
                 zoom: 16,
@@ -112,9 +112,9 @@
           </p>
         </div>
         <ul id="location-links" class="information-content">
-          <li><a href="https://www.ost.ch/en/university-of-applied-sciences/campus/rapperswil-jona-campus" target="_blank">Homepage</a></li>
-          <li><a href="https://osm.org/go/0C0kYxUAI?m=&way=34754484" target="_blank">OpenStreetMap</a></li>
-          <li><a href="https://goo.gl/maps/DkF6U9qdgdjcMfz29" target="_blank">Google Maps</a></li>
+          <li><a href="https://www.ost.ch/en/university-of-applied-sciences/campus/rapperswil-jona-campus">Homepage</a></li>
+          <li><a href="https://osm.org/go/0C0kYxUAI?m=&way=34754484">OpenStreetMap</a></li>
+          <li><a href="https://goo.gl/maps/DkF6U9qdgdjcMfz29">Google Maps</a></li>
         </ul>
       </section>
 
@@ -178,5 +178,18 @@
         </div>
       </section>
     </main>
+    <footer>
+    <div id="footer-content">
+      <div id="footer-left">
+      Copyright © 2024 Zürich Friends of Nix
+      <br>
+      Made with ❤️ in 🇨🇭
+      </div>
+      <ul id="footer-right">
+        <li><a href="https://github.com/john-rodewald/zhf-website">Source code</a></li>
+        <li><a href="#">Impressum</a></li>
+      </ul>
+    </div>
+    </footer>
   </body>
 </html>
