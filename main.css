@@ -1,8 +1,5 @@
-@font-face {
-  font-family: "Geist";
-  src: url("https://unpkg.com/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2")
-    format("woff2");
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
   --text-primary: #5277c3;
@@ -13,31 +10,29 @@
 }
 
 * {
-  font-family: Geist, sans-serif;
 }
 
 body,
 html {
   background: var(--background-primary);
   font-size: 20px;
-  @media only screen and (max-width: 833px) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  @media only screen and (max-width: 500px) {
     font-size: 16px;
   }
 }
 
 #main {
-  padding: 6rem 30%;
+  padding: 6em 30%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   align-items: center;
   @media only screen and (max-width: 1700px) {
-    padding: 6rem 4rem;
-    align-items: start;
+    padding: 6em 4em;
   }
   @media only screen and (max-width: 833px) {
-    padding: 4rem 2rem;
-    align-items: start;
+    padding: 4em 2em;
   }
   background: linear-gradient(
     0deg,
@@ -48,8 +43,9 @@ html {
 
 #logo {
   display: flex;
-  gap: 1rem;
-  @media only screen and (max-width: 833px) {
+  gap: 1em;
+  margin-bottom: 2em;
+  @media only screen and (max-width: 30em) {
     align-items: center;
     text-align: center;
     flex-direction: column;
@@ -57,14 +53,11 @@ html {
   }
 }
 
-#meetup {
-  width: 10rem;
-}
-
 #titles {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.5em;
+  margin-top: 1em;
   @media only screen and (max-width: 833px) {
     align-items: center;
   }
@@ -72,119 +65,151 @@ html {
 
 #title-main {
   color: var(--text-primary);
-  font-weight: 800;
-  font-size: 4rem;
+  font-weight: 700;
+  font-size: 400%;
 }
 
 #title-sub {
   color: var(--text-content);
-  font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 150%;
 }
 
 #title-date {
   color: var(--background-secondary);
-  font-weight: 300;
   background: var(--text-primary);
-  font-size: 1.5rem;
+  font-size: 150%;
   width: fit-content;
-  padding: 0.25rem 1rem;
-  border-radius: 4rem;
+  padding: 0.25em 1em;
+  border-radius: 100em;
 }
 
 .information-block {
-  line-height: 1.25rem;
-  width: 32rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  @media only screen and (max-width: 833px) {
-    width: 100%;
-  }
+  line-height: 1.25em;
+  width: 32em;
+  max-width: 100%;
 }
 
 .information-title {
   font-weight: 700;
   color: var(--text-primary);
-  font-size: 1.5rem;
+  font-size: 150%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
 .information-content {
-  font-weight: 300;
+  font-weight: 350;
+  line-height: 1.8em;
+  margin: 1em 0;
   color: var(--text-content);
   text-align: left;
+  em {
+    font-weight: 600;
+  }
 }
 
-#next-event-social {
+#social-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  margin: 2em 0;
+  gap: 2em;
   align-items: center;
+  text-align: center;
+  img {
+    max-height: 4em;
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 #map {
   height: 20em;
+  canvas {
+    border-radius: 4px;
+  }
+}
+
+#location-name {
+  text-align: center;
+  p {
+    display: inline-block;
+    line-height: 1.5em;
+    font-weight: 500;
+    white-space: pre-line;
+  }
+}
+
+#location-links {
+  text-align: center;
+  margin-top: 0;
+  li {
+    font-weight: 400;
+    display: inline-block;
+    padding: 0 1em;
+  }
 }
 
 #agenda {
+}
+
+.schedule {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  margin-top: 1em;
+  @media only screen and (min-width: 30em) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1em;
+  }
   @media only screen and (min-width: 1700px) {
+    gap: 2em;
     background: var(--background-contrast);
-    padding: 2rem;
+    padding: 2em;
     border-radius: 4px;
     box-shadow: 0px 2px 8px 0px #0000001a;
     width: 125%;
   }
 }
 
-.schedule {
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
-  margin-top: 1rem;
-  @media only screen and (min-width: 1700px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-}
-
 .schedule-day {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.5em;
 }
 
 .schedule-title {
-  font-size: 1.25rem;
+  font-size: 125%;
   color: var(--text-primary);
-  font-weight: 700;
+  text-align: center;
 }
 
 .schedule-block {
   background: var(--background-secondary);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 1rem;
-  border-radius: 1rem;
+  gap: 0.75em;
+  padding: 1em;
+  border-radius: 0.5em;
   box-shadow: 0px 2px 8px 0px #0000001a;
-  padding-bottom: calc(var(--data-hours) * 2rem);
+  min-height: calc(3em + var(--data-hours) * 3em);
 }
 
 .schedule-time {
   color: var(--text-content);
-  font-weight: 300;
+  font-weight: 350;
 }
 
-.schedule-content {
+.schedule-item {
   color: var(--text-primary);
   font-weight: 700;
+  line-height: 2em;
 }
 
 .invisible-lg {
   display: none;
-  @media only screen and (min-width: 1700px) {
+  @media only screen and (min-width: 30em) {
     display: inherit;
     opacity: 0;
   }
