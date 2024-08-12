@@ -5,7 +5,7 @@
       rel="stylesheet"
       href="https://meyerweb.com/eric/tools/css/reset/reset.css"
     />
-    <link rel="stylesheet" href="main.css?1723289980" />
+    <link rel="stylesheet" href="main.css?1723289992" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <link rel="icon" href="favicon.ico" sizes="64x64 32x32 16x16">
@@ -17,6 +17,18 @@
   </head>
 
   <body>
+    <section id="debug">
+    <pre></pre>
+    </section>
+    <script defer>
+    const debugEl = document.querySelector('#debug')
+    if (window.location.hash === '#debug') debugEl.style['display'] = 'block';
+    const debugPre = debugEl.querySelector('pre')
+    debugPre.innerText = [
+      `user agent: ${window.navigator.userAgent}`,
+      `client size: ${document.documentElement.clientWidth}x${document.documentElement.clientHeight}`,
+    ].join('\n');
+    </script>
     <main id="main">
       <section id="logo">
         <img src="./assets/zhf-flake.svg" alt="ZHF flake" />
