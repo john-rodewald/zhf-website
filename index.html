@@ -12,23 +12,15 @@
     <link rel="icon" href="assets/nix-zurich.svg" type="image/svg+xml" sizes="any">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><!-- 180×180 -->
     <title>The Zürich Nix Community</title>
-    <script src="https://cdn.jsdelivr.net/npm/ol@v10.0.0/dist/ol.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/ol@v10.0.0/dist/ol.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.0.0/ol.css">
+    <script defer src="main.js"></script>
   </head>
 
   <body>
     <section id="debug">
     <pre></pre>
     </section>
-    <script defer>
-    const debugEl = document.querySelector('#debug')
-    if (window.location.hash === '#debug') debugEl.style['display'] = 'block';
-    const debugPre = debugEl.querySelector('pre')
-    debugPre.innerText = [
-      `user agent: ${window.navigator.userAgent}`,
-      `client size: ${document.documentElement.clientWidth}x${document.documentElement.clientHeight}`,
-    ].join('\n');
-    </script>
     <main id="main">
       <section id="logo">
         <img src="./assets/zhf-flake.svg" alt="ZHF flake" />
@@ -88,38 +80,6 @@
         campus of OST</em> located right next to lake Zürich. We hope to see you there!
         </p>
         <div id="map"></div>
-        <script defer>
-            const ostGeb4 = ol.proj.fromLonLat([8.81653368473053, 47.22318649291992])
-            const pinFeature = new ol.Feature({
-              geometry: new ol.geom.Point(ostGeb4),
-            });
-            pinFeature.setStyle(
-              new ol.style.Style({
-                image: new ol.style.Icon({
-                  anchor: [0.5, 1],
-                  opacity: 1,
-                  scale: 0.7,
-                  src: 'assets/map_pin.svg',
-                }),
-              })
-            );
-            const pinLayer = new ol.layer.Vector({
-              source: new ol.source.Vector({
-                features: [pinFeature],
-              }),
-            });
-            const tileLayer = new ol.layer.Tile({
-              source: new ol.source.OSM(),
-            });
-            const map = new ol.Map({
-              target: 'map',
-              layers: [tileLayer, pinLayer],
-              view: new ol.View({
-                center: ostGeb4,
-                zoom: 16,
-              }),
-            });
-        </script>
         <div id="location-name">
           <p class="information-content">OST Campus Rapperswil
           Oberseestrasse 10
