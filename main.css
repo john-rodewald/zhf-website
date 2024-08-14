@@ -135,7 +135,7 @@ html {
   gap: 2em;
   align-items: center;
   text-align: center;
-  img {
+  * {
     max-height: 4em;
     width: 100%;
     object-fit: contain;
